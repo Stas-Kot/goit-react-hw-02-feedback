@@ -12,7 +12,6 @@ class App extends Component {
     bad: 0,
   };
   handleBtnClick = e => {
-    console.log(e.target);
     this.setState(prevState => {
       return {
         [e.target.name]: prevState[e.target.name] + 1,
@@ -36,7 +35,7 @@ class App extends Component {
       <div className="container">
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.handleBtnClick}
           />
         </Section>
